@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        .container-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .text-block {
+            margin-bottom: 20px; /* Расстояние между текстом и формой */
+        }
+    </style>
+
+<div class="container-wrapper">
+    <div class="text-block">
+        <h1>Добро пожаловать!</h1>
+    </div>
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Логин</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Пароль</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="d-grid col-12 mx-auto">
+  <button class="btn btn-primary" type="button">Button</button>
+</div>
+    </form>
+</div>
+{% endblock %}
