@@ -38,8 +38,8 @@ class Worklog(BaseModel):
     user: Mapped["User"] = relationship(back_populates='worklog')
 
 
-class Admin(BaseModel):
-    __tablename__ = 'User'
+class UserAdmin(BaseModel):
+    __tablename__ = 'UserAdmin'
 
     id: Mapped[int] = mapped_column(unique=True, primary_key=True)
     username: Mapped[str] = mapped_column(String(30), default='Admin')

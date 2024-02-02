@@ -19,6 +19,11 @@
     <div class="text-block">
         <h1>Добро пожаловать!</h1>
     </div>
+    {% if error_message %}
+        <div class="text-block p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">
+            {{ error_message }}
+        </div>
+    {% endif %}
     <form action="login" method="post">
         <div class="mb-3">
             <label for="username" class="form-label">Логин</label>
