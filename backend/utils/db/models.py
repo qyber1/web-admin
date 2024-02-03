@@ -7,6 +7,7 @@ from sqlalchemy import String, ForeignKey, Time, Date
 class BaseModel(DeclarativeBase):
     pass
 
+
 class Department(BaseModel):
     __tablename__ = "Department"
 
@@ -33,7 +34,7 @@ class Worklog(BaseModel):
     start_time: Mapped[datetime.datetime] = mapped_column(Time)
     end_time: Mapped[datetime.datetime] = mapped_column(Time, nullable=True, default=None)
     date: Mapped[datetime.datetime] = mapped_column(Date)
-    user_id: Mapped[int] =  mapped_column(ForeignKey("User.id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("User.id"))
     comment: Mapped[str] = mapped_column(String(256), nullable=True)
     user: Mapped["User"] = relationship(back_populates='worklog')
 
