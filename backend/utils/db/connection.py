@@ -8,7 +8,6 @@ TEST_DATABASE_URL = "postgresql+asyncpg://postgres:postgres@localhost:5432/solo_
 engine = create_async_engine(DATABASE_URL, echo=True, future=True)
 
 
-
 async def get_session() -> AsyncSession:
     async_session = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
     async with async_session() as session:
