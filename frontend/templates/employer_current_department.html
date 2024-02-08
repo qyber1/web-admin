@@ -19,23 +19,23 @@
 </nav>
   {% endblock %}
 
-
   {% block content %}
+{% if full_info %}
 <div class="d-flex p-2 col-8 mx-auto">
-  <p class="fs-3">
-    Отделы
-  </p>
+  <p class="fs-3"> {{ full_info[0][-1]}} </p>
 </div>
-
 <div class="d-flex p-2 col-8 mx-auto">
   <ol>
-  {% for i in range(departments| length)%}
-    <li> <a>{{ departments[i][0] }}</a> </li>
+  {% for i in range(full_info| length)%}
+    <li>ФИО: {{ full_info[i][1] }}, должность - {{ full_info[i][2] }} <a href=" {{ url_for('get_statistics_current_employer', user_id=full_info[i][0]) }}">Статистика</a></li>
   {% endfor %}
   </ol>
 </div>
 
+{% else %}
+
 <div class="d-flex p-2 col-8 mx-auto">
-  <a type="button" class="btn btn-primary" href="{{ url_for('add_new_departments_view') }}">Добавить отдел</a>
+  <p class="fs-3"> В этом отделе ещё нет сотрудников</p>
 </div>
+{% endif %}
   {% endblock %}

@@ -1,5 +1,6 @@
 import datetime
 
+from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy import String, ForeignKey, Time, Date
 
@@ -37,6 +38,10 @@ class Worklog(BaseModel):
     user_id: Mapped[int] = mapped_column(ForeignKey("User.id"))
     comment: Mapped[str] = mapped_column(String(256), nullable=True)
     user: Mapped["User"] = relationship(back_populates='worklog')
+
+    @hybrid_property
+    def time_work(self):
+        return self.end_time - self.start_time
 
 
 class UserAdmin(BaseModel):
