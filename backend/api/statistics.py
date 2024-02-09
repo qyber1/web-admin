@@ -27,10 +27,10 @@ async def time_formatted(data: list):
         result.append({
             "name": item[0],
             "start": item[1].strftime("%H:%M:%S"),
-            "end": item[2].strftime("%H:%M:%S"),
-            "total": await total_time(item[3]),
+            "end": item[2].strftime("%H:%M:%S") if item[2] else ' ',
+            "total": await total_time(item[3]) if item[3] else ' ',
             "date": item[4],
-            "comment": item[5]
+            "comment": item[5] if item[5] else ' '
         })
 
     return result
